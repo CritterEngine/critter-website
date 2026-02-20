@@ -1,0 +1,12 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+
+# Local env / misc
+.env
+.env.*
+
