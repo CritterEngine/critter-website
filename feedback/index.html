@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Send Critter Engine feedback through the public Critter Engine website."
+    />
+
+    <title>Feedback | Critter Engine</title>
+
+    <link rel="icon" href="../logo/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="../logo/favicon.png" />
+    <link rel="apple-touch-icon" href="../logo/icon-192.png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html" aria-label="Critter Engine home">
+          <img class="brand-mark" src="../logo/logo.svg" alt="" />
+          <span class="brand-name">Critter Engine</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="../index.html#why">Why Critter Engine</a>
+          <a href="../index.html#mujoco">MuJoCo</a>
+          <a href="../index.html#features">Features</a>
+          <a href="../updates/index.html">Updates</a>
+        </nav>
+
+        <a class="button button-primary header-cta" href="../index.html">Home</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section form-page">
+        <div class="container form-layout">
+          <div class="form-copy">
+            <p class="eyebrow">Critter Engine feedback</p>
+            <h1>Send feedback.</h1>
+            <p class="lead">
+              Report a bug, request a feature, or tell us what would make Critter Engine more useful
+              in your robot workflow.
+            </p>
+            <p class="privacy-boundary">
+              This form is on the public Critter Engine website, not inside the app workspace. Do not
+              include private project details, robot models, uploaded files, scene data, or
+              sensitive workspace information unless you choose to share it. Do not rely on app
+              session state, and do not include project IDs, scene names, filenames, or workspace
+              data in query params.
+            </p>
+          </div>
+
+          <form class="form-panel" data-feedback-form>
+            <div class="form-field">
+              <label for="feedback-email">Email</label>
+              <input
+                id="feedback-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="feedback-message">Message</label>
+              <textarea id="feedback-message" name="message" rows="8" required></textarea>
+            </div>
+
+            <p class="form-note">
+              Do not include project IDs, scene names, filenames, or workspace data in this form.
+            </p>
+
+            <button class="button button-primary" type="submit">Send feedback</button>
+            <p class="form-status" data-feedback-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="footer-brand" href="../index.html" aria-label="Critter Engine home">
+          <img class="footer-mark" src="../logo/logo.svg" alt="" />
+          <span>Critter Engine</span>
+        </a>
+        <p class="footer-meta">
+          <span>&copy; <span id="year"></span></span>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a href="../updates/index.html">Updates</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../script.js" defer></script>
+  </body>
+</html>
