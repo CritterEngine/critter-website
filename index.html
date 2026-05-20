@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Critter Engine is a physics-simulation-first training and visualization workspace for physical AI—built to help industrial teams prototype behaviors, evaluate policies, and iterate with confidence."
+      content="Open a tab. Build a robot. Run the physics. Critter Engine is a browser-native visual editor for robot models, with real-time simulation and no install required."
     />
 
-    <title>Critter Engine — Simulation-first physical AI</title>
+    <title>Critter Engine. Visual robot design and physics simulation in your browser.</title>
 
     <link rel="icon" href="logo/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="logo/favicon.png" />
@@ -22,10 +22,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="logo/icon-512.png" />
 
     <meta property="og:title" content="Critter Engine" />
-    <meta
-      property="og:description"
-      content="Train physical AI for the real world—in physics simulation. A visual training tool and rollout analyzer designed for industrial workflows."
-    />
+    <meta property="og:description" content="Robotics design and physics for the browser" />
     <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="styles.css" />
@@ -35,22 +32,21 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#" aria-label="Critter Engine home">
+        <a class="brand" href="index.html" aria-label="Critter Engine home">
           <img class="brand-mark" src="logo/logo.svg" alt="" />
           <span class="brand-name">Critter Engine</span>
         </a>
 
         <nav class="site-nav" aria-label="Primary">
-          <a href="#what-it-is">What it is</a>
-          <a href="#benefits">Benefits</a>
-          
+          <a href="#why">Why Critter Engine</a>
+          <a href="#mujoco">MuJoCo</a>
+          <a href="#features">Features</a>
+          <a href="updates/index.html">Updates</a>
+          <a href="feedback/index.html">Send Feedback</a>
+          <a href="#faq">FAQ</a>
         </nav>
 
-        <a
-          class="button button-primary header-cta"
-          href="mailto:contact@critterengine.com?subject=Request%20early%20access%20%E2%80%94%20Critter%20Engine&body=Hi%20Critter%20Engine%20team%2C%0D%0A%0D%0AWe%E2%80%99re%20interested%20in%20early%20access.%20Could%20we%20learn%20more%20and%20share%20a%20bit%20about%20our%20workflow%3F%0D%0A%0D%0AThanks%2C"
-          >Request early access</a
-        >
+        <a class="button button-primary header-cta" href="updates/index.html">Sign Up</a>
       </div>
     </header>
 
@@ -58,25 +54,23 @@
       <section class="hero" aria-label="Intro">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Simulation-first physical AI for industrial teams</p>
-            <h1>Train physical AI for the real world&mdash;in physics simulation.</h1>
+            <p class="eyebrow">Visual robot design and physics simulation</p>
+            <h1>Open a tab.<br />Build a robot.<br />Run the physics. Iterate.</h1>
             <p class="lead">
-             Critter Engine is a cloud robotics simulation and AI training platform that enables streamlined policy training and deployment for industrial applications
+              Quickly visualize and edit your robot's physical properties with real-time physics in
+              the browser.
             </p>
 
             <div class="hero-actions">
+              <a class="button button-primary" href="updates/index.html">Sign Up To Hear When We Launch</a>
               <a
-                class="button button-primary"
-                href="mailto:contact@critterengine.com?subject=Request%20early%20access%20%E2%80%94%20Critter%20Engine&body=Hi%20Critter%20Engine%20team%2C%0D%0A%0D%0AWe%E2%80%99re%20interested%20in%20early%20access.%20Could%20we%20learn%20more%20and%20share%20a%20bit%20about%20our%20workflow%3F%0D%0A%0D%0AThanks%2C"
-                >Request early access</a
+                class="button button-secondary"
+                href="mailto:contact@critterengine.com?subject=Request%20a%20demo%20%E2%80%94%20Critter%20Engine&body=Hi%20Critter%20Engine%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20request%20a%20demo.%0D%0A%0D%0AThanks%2C"
+                >Request a Demo</a
               >
-              <a class="button button-secondary" href="#what-it-is">What it is</a>
             </div>
 
-            <p class="subtle">
-              Critter Engine helps industrial teams to quickly design, visualize, and evaluate machine learning policies,
-              and iterate before anything touches the factory floor.
-            </p>
+            <p class="trust-line">No install &middot; No account &middot; Files stay local</p>
           </div>
 
           <div class="hero-media" aria-hidden="true">
@@ -87,150 +81,223 @@
                 loading="eager"
                 decoding="async"
               />
-              <div class="media-overlay"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="what-it-is" class="section">
-        <div class="container two-col">
-          <div>
-            <h2>What it is</h2>
-            <p class="lead">
-              A training tool + visualizer for industrial physical AI.
-            </p>
-            <p>
-              Critter Engine is acloud robotics simulation and AI training platform that simplifies robot configuration and simulation workflows, enabling streamlined policy training and deployment for industrial applications
-              
-            </p>
-          </div>
-
-          <div class="support-media">
-            <img
-              src="images/pexels-kjbromme-16544054.jpg"
-              alt="Industrial scene placeholder"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section id="benefits" class="section section-alt">
+      <section id="why" class="section">
         <div class="container">
           <div class="section-head">
-            <h2>Build confidence before deployment</h2>
-            <p class="subhead"></p>
+            <p class="eyebrow">Why Critter Engine</p>
+            <h2>Build faster without moving your workflow into a black box.</h2>
           </div>
 
-          <div class="cards">
-            <div class="card">
-              <div class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M12 2v4" />
-                  <path d="M12 18v4" />
-                  <path d="M4.2 4.2l2.8 2.8" />
-                  <path d="M17 17l2.8 2.8" />
-                  <path d="M2 12h4" />
-                  <path d="M18 12h4" />
-                  <path d="M4.2 19.8L7 17" />
-                  <path d="M17 7l2.8-2.8" />
-                  <path d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10z" />
-                </svg>
-              </div>
-              <h3>Reduce deployment risk</h3>
-              <p>Stress-test behaviors in physics simulation before committing to real-world trials.</p>
-            </div>
-
-            <div class="card">
-              <div class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M3 12h8" />
-                  <path d="M7 8l4 4l-4 4" />
-                  <path d="M13 6h8" />
-                  <path d="M13 12h8" />
-                  <path d="M13 18h8" />
-                </svg>
-              </div>
-              <h3>Close the sim-to-real gap</h3>
+          <div class="cards cards-three">
+            <article class="card">
+              <h3>100% in the browser</h3>
               <p>
-                Iterate on environment design, variability, and evaluation so policies transfer more
-                reliably.
+                No installs, no Docker, no Python env to break. Open a tab and start working.
               </p>
-            </div>
+            </article>
 
-            <div class="card">
-              <div class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M2 12s3.5-7 10-7s10 7 10 7s-3.5 7-10 7S2 12 2 12z" />
-                  <path d="M12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6z" />
-                </svg>
-              </div>
-              <h3>Faster model-design iteration</h3>
+            <article class="card">
+              <h3>Files stay yours</h3>
               <p>
-                Tight loop for comparing training runs and policy changes without rebuilding your
-                workflow each time.
+                No accounts required. Your robots, scenes, and projects live in your browser and
+                your local files.
               </p>
-            </div>
+            </article>
 
-            <div class="card">
-              <div class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M7 7h10" />
-                  <path d="M7 12h10" />
-                  <path d="M7 17h10" />
-                  <path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5z" />
-                </svg>
-              </div>
-              <h3>Make rollouts legible</h3>
+            <article class="card">
+              <h3>See what your model is doing</h3>
               <p>
-                Visualize policy rollouts to diagnose failure modes, instability, and regressions
-                early.
+                Stop hunting through XML for a wrong number. Quickly visualize bodies, joints,
+                sites, collisions, tendons, and inertias. Mistakes are obvious the moment you load
+                the file, and you can fix them on the spot.
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="early-access" class="section">
-        <div class="container cta-block">
-          <div class="cta-copy">
-            <h2>Get early access for your team.</h2>
-            <p>
-              A physics-simulation-first workspace for training and visualizing physical
-              AI&mdash;built with industrial iteration, evaluation, and review in mind.
+      <section id="mujoco" class="section section-alt">
+        <div class="container split">
+          <div class="section-copy">
+            <p class="eyebrow">Built on MuJoCo</p>
+            <h2>For the MuJoCo workflow.</h2>
+            <p class="lead">
+              Critter Engine is built on MuJoCo. If you already work in MuJoCo, Critter Engine fits
+              your stack without locking you in.
             </p>
           </div>
 
-          <div class="cta-actions" role="group" aria-label="Early access actions">
-            <a
-              class="button button-primary"
-              href="mailto:contact@critterengine.com?subject=Request%20early%20access%20%E2%80%94%20Critter%20Engine&body=Hi%20Critter%20Engine%20team%2C%0D%0A%0D%0AWe%E2%80%99re%20interested%20in%20early%20access.%20Could%20we%20learn%20more%3F%0D%0A%0D%0AThanks%2C"
-              >Request early access</a
-            >
-            <a
-              class="button button-secondary"
-              href="mailto:contact@critterengine.com?subject=Talk%20to%20us%20%E2%80%94%20Critter%20Engine&body=Hi%20Critter%20Engine%20team%2C%0D%0A%0D%0AI%E2%80%99d%20like%20to%20talk%20about%20Critter%20Engine.%0D%0A%0D%0AThanks%2C"
-              >Talk to us</a
-            >
-            <a
-              class="button button-tertiary"
-              href="mailto:contact@critterengine.com?subject=Join%20the%20waitlist%20%E2%80%94%20Critter%20Engine&body=Hi%20Critter%20Engine%20team%2C%0D%0A%0D%0APlease%20add%20me%20to%20launch%20updates.%0D%0A%0D%0AThanks%2C"
-              >Join the waitlist</a
-            >
+          <div class="feature-list">
+            <article class="feature-item">
+              <h3>Real MuJoCo physics</h3>
+              <p>Running natively in your browser.</p>
+            </article>
+
+            <article class="feature-item">
+              <h3>Import standard MJCF/XML models with meshes</h3>
+              <p>
+                Critter Engine parses them and gives you a visual handle on every body, joint,
+                tendon, constraint, inertial, mesh, collision, and more. Edit in just a few clicks.
+              </p>
+            </article>
+
+            <article class="feature-item">
+              <h3>Export your edited model</h3>
+              <p>Save clean MJCF/XML you can drop into any MuJoCo runtime.</p>
+            </article>
+
+            <article class="feature-item">
+              <h3>Familiar robot library</h3>
+              <p>
+                Franka Panda and FR3, UR5e and UR10e, KUKA iiwa, Boston Dynamics Spot, Unitree
+                Go2/G1/H1, Agility Cassie, Agilex Piper, and more, plus grippers and hands.
+              </p>
+            </article>
+
+            <article class="feature-item">
+              <h3>Full MuJoCo sensor support</h3>
+              <p>IMUs, force/torque, touch, joint and actuator state, tendons, and the rest.</p>
+            </article>
           </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">What you can do with Critter Engine</p>
+            <h2>Design, inspect, drive, and export robot models visually.</h2>
+          </div>
+
+          <div class="cards cards-six">
+            <article class="card">
+              <h3>Catch bugs at a glance</h3>
+              <p>
+                Toggle overlays for collisions, sites, joint axes, tendons, and inertias. Click to
+                inspect and edit.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Compose without typing</h3>
+              <p>
+                Drag in robots, grippers, props, and terrain, or build from scratch. Visually tune
+                every part of a robot's physics model.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Drive the robot</h3>
+              <p>
+                Move any joint with a live slider. Watch the actuators respond in real time, with
+                or without physics running.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>See what the robot sees</h3>
+              <p>
+                Mount a virtual camera on any body, preview the live feed, snapshot stills, and
+                record video clips of the simulation.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Run real-time physics in the browser</h3>
+              <p>
+                Press play and watch the constraints do their job. Press stop and your scene
+                returns to exactly where it started.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Save and share</h3>
+              <p>Export your project as a single portable file and reopen it anywhere.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2>Practical answers before launch.</h2>
+          </div>
+
+          <div class="faq-list">
+            <details>
+              <summary>Where is my data stored?</summary>
+              <p>
+                Locally, in your browser, your downloads folder, and nowhere else. Optional caching
+                of uploaded meshes between sessions is opt-in.
+              </p>
+            </details>
+
+            <details>
+              <summary>Do I need an account?</summary>
+              <p>No.</p>
+            </details>
+
+            <details>
+              <summary>What browsers are supported?</summary>
+              <p>The latest two versions of Chrome, Edge, Firefox, and Safari.</p>
+            </details>
+
+            <details>
+              <summary>Can I import an existing model?</summary>
+              <p>Yes. Import MJCF/XML with meshes, edit visually, export it back out.</p>
+            </details>
+
+            <details>
+              <summary>Does Critter Engine train policies?</summary>
+              <p>Not yet. Today it's focused on design and simulation. Training is on the roadmap.</p>
+            </details>
+
+            <details>
+              <summary>Is it free?</summary>
+              <p>Free during the public launch.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="signup" class="section final-cta">
+        <div class="container cta-block">
+          <div>
+            <p class="eyebrow">Critter Engine</p>
+            <h2>Stop debugging robots in a text editor.</h2>
+            <p class="trust-line">No install &middot; No account &middot; Files stay local</p>
+          </div>
+
+          <a
+            class="button button-primary"
+            href="updates/index.html"
+            >Sign up to hear when we launch</a
+          >
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p class="footer-brand">Critter Engine</p>
+        <a class="footer-brand" href="index.html" aria-label="Critter Engine home">
+          <img class="footer-mark" src="logo/logo.svg" alt="" />
+          <span>Critter Engine</span>
+        </a>
         <p class="footer-meta">
           <span>&copy; <span id="year"></span></span>
           <span class="dot" aria-hidden="true">&middot;</span>
-          <span>Pre-launch</span>
+          <span>Robotics design and physics for the browser</span>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a href="updates/index.html">Updates</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a href="feedback/index.html">Send Feedback</a>
         </p>
       </div>
     </footer>
