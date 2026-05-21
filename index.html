@@ -55,7 +55,7 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Visual robot design and physics simulation</p>
-            <h1>Open a tab.<br />Build a robot.<br />Run the physics. Iterate.</h1>
+            <h1>Open a tab.<br />Build a robot.<br />Run the physics.<br />Iterate.</h1>
             <p class="lead">
               Quickly visualize and edit your robot's physical properties with real-time physics in
               the browser.
@@ -74,13 +74,93 @@
           </div>
 
           <div class="hero-media" aria-hidden="true">
-            <div class="media-frame">
-              <img
-                src="images/pexels-hyundaimotorgroup-19319639.jpg"
-                alt=""
-                loading="eager"
-                decoding="async"
-              />
+            <div class="spot-showcase">
+              <div class="factory-frame">
+                <img
+                  class="factory-photo"
+                  src="images/pexels-hyundaimotorgroup-19319639.jpg"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="spot-stage">
+                <img
+                  class="spot-layer spot-layer-visual"
+                  src="images/spot/spot-visual-alpha.png"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  class="spot-layer spot-layer-joints"
+                  src="images/spot/spot-joints-alpha.png"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  class="spot-layer spot-layer-collision"
+                  src="images/spot/spot-collision-alpha.png"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="layer-panel">
+                <div class="layer-row layer-row-visual">
+                  <span class="layer-switch"></span>
+                  <svg
+                    class="layer-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="4.5" y="4.5" width="15" height="15" rx="2.5" />
+                    <path d="M7.5 12c1.35-2.05 3-3.05 4.5-3.05S15.15 9.95 16.5 12c-1.35 2.05-3 3.05-4.5 3.05S8.85 14.05 7.5 12Z" />
+                    <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+                  </svg>
+                  <span>visual</span>
+                </div>
+                <div class="layer-row layer-row-joints">
+                  <span class="layer-switch"></span>
+                  <svg
+                    class="layer-icon"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    stroke="none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="14" cy="12" r="3" />
+                    <g transform="translate(14, 12) rotate(-140)">
+                      <rect x="4.5" y="-2" width="9.5" height="4" rx="1" />
+                    </g>
+                    <g transform="translate(14, 12) rotate(155)">
+                      <rect x="4.5" y="-2" width="9.5" height="4" rx="1" />
+                    </g>
+                  </svg>
+                  <span>joints</span>
+                </div>
+                <div class="layer-row layer-row-collision">
+                  <span class="layer-switch"></span>
+                  <svg
+                    class="layer-icon"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    stroke="none"
+                    aria-hidden="true"
+                  >
+                    <polygon points="12,2 13.9,7.4 19.1,4.9 16.6,10.1 22,12 16.6,13.9 19.1,19.1 13.9,16.6 12,22 10.1,16.6 4.9,19.1 7.4,13.9 2,12 7.4,10.1 4.9,4.9 10.1,7.4" />
+                  </svg>
+                  <span>collisions</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -112,9 +192,8 @@
             <article class="card">
               <h3>See what your model is doing</h3>
               <p>
-                Stop hunting through XML for a wrong number. Quickly visualize bodies, joints,
-                sites, collisions, tendons, and inertias. Mistakes are obvious the moment you load
-                the file, and you can fix them on the spot.
+                Stop hunting through text files for one wrong number. Quickly visualize bodies,
+                joints, sites, collisions, tendons, and inertias, and edit them on the spot.
               </p>
             </article>
           </div>
@@ -227,7 +306,7 @@
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">FAQ</p>
-            <h2>Practical answers before launch.</h2>
+            <h2>Details before you start.</h2>
           </div>
 
           <div class="faq-list">
