@@ -957,17 +957,34 @@ button:disabled {
   }
 
   .spot-stage {
-    left: 3%;
+    left: -3%;
     bottom: -11%;
     width: min(63%, 272px);
+  }
+
+  .factory-photo {
+    object-position: 21% center;
   }
 
   .layer-panel {
     right: 10px;
     top: 10px;
-    min-width: 120px;
-    padding: 10px;
+    min-width: 116px;
+    gap: 6px;
+    padding: 8px;
     font-size: 11px;
+  }
+
+  .layer-row {
+    gap: 6px;
+  }
+
+  .layer-switch {
+    height: 14px;
+  }
+
+  .layer-switch::after {
+    top: 1px;
   }
 
   .cards-three,
@@ -981,10 +998,14 @@ button:disabled {
   }
 
   .cta-block,
-  .footer-inner,
-  .footer-meta {
+  .footer-inner {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .footer-meta {
+    align-items: center;
+    flex-direction: row;
   }
 
   .cta-block .button {
