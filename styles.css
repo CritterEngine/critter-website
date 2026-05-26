@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 15px;
 }
 
 body {
@@ -128,6 +129,53 @@ img {
 .site-nav a:hover {
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
+}
+
+.menu-toggle {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.menu-toggle span:nth-child(1) {
+  transform: translateY(-6px);
+}
+
+.menu-toggle span:nth-child(3) {
+  transform: translateY(6px);
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(3) {
+  transform: rotate(-45deg);
 }
 
 .button {
@@ -551,6 +599,7 @@ h3 {
 
 .section {
   padding: clamp(56px, 7vw, 92px) 0;
+  scroll-margin-top: 15px;
 }
 
 .section-alt {
@@ -819,16 +868,36 @@ button:disabled {
     flex-wrap: wrap;
   }
 
+  .menu-toggle {
+    display: inline-flex;
+  }
+
   .header-cta {
-    margin-left: auto;
+    display: none;
   }
 
   .site-nav {
     order: 3;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
     width: 100%;
     margin-left: 0;
-    overflow-x: auto;
-    padding-bottom: 2px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(11, 18, 32, 0.96);
+    box-shadow: var(--shadow);
+  }
+
+  .site-header.is-menu-open .site-nav {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 12px;
+    color: var(--text);
   }
 
   .hero-grid,
@@ -855,16 +924,6 @@ button:disabled {
 
   .brand-name {
     font-size: 15px;
-  }
-
-  .header-cta {
-    min-height: 40px;
-    padding: 9px 12px;
-  }
-
-  .site-nav a {
-    padding-inline: 9px;
-    white-space: nowrap;
   }
 
   h1 {

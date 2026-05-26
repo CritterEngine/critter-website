@@ -25,7 +25,20 @@
           <span class="brand-name">Critter Engine</span>
         </a>
 
-        <nav class="site-nav" aria-label="Primary">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          data-menu-toggle
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="site-nav" id="primary-nav" aria-label="Primary" data-site-nav>
           <a href="../index.html#why">Why Critter Engine</a>
           <a href="../index.html#mujoco">MuJoCo</a>
           <a href="../index.html#features">Features</a>

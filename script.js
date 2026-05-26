@@ -1,6 +1,40 @@
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+const menuToggle = document.querySelector("[data-menu-toggle]");
+const siteNav = document.querySelector("[data-site-nav]");
+const siteHeader = document.querySelector(".site-header");
+
+if (menuToggle && siteNav && siteHeader) {
+  const closeMenu = () => {
+    siteHeader.classList.remove("is-menu-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open menu");
+  };
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteHeader.classList.toggle("is-menu-open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  });
+
+  siteNav.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLAnchorElement) closeMenu();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!siteHeader.contains(event.target)) closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 941px)").matches) closeMenu();
+  });
+}
+
 const updatesForm = document.querySelector("[data-updates-form]");
 const updatesStatus = document.querySelector("[data-updates-status]");
 const updatesMessages = {
