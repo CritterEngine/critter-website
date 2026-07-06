@@ -46,7 +46,7 @@ const updatesMessages = {
   mailer_validation_failed: "Updates signup is not configured yet.",
   mailer_rate_limited: "Signup is busy. Please try again in a minute.",
   subscription_failed: "Signup failed. Please try again in a moment.",
-  success: "You are on the updates list. Thanks. We will send product updates to your inbox.",
+  success: "Just added you to the updates list. Thanks.",
 };
 
 if (updatesForm && updatesStatus) {
