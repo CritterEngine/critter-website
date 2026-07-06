@@ -40,6 +40,11 @@ const updatesStatus = document.querySelector("[data-updates-status]");
 const updatesMessages = {
   invalid_email: "Enter a valid email address.",
   subscription_unavailable: "Updates signup is not configured yet.",
+  mailer_auth_failed: "Updates signup is not configured yet.",
+  mailer_forbidden: "Updates signup is not configured yet.",
+  mailer_invalid_group: "Updates signup is not configured yet.",
+  mailer_validation_failed: "Updates signup is not configured yet.",
+  mailer_rate_limited: "Signup is busy. Please try again in a minute.",
   subscription_failed: "Signup failed. Please try again in a moment.",
   success: "You are on the updates list. Thanks. We will send product updates to your inbox.",
 };

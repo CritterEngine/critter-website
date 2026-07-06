@@ -1,6 +1,7 @@
 const MAILERLITE_SUBSCRIBERS_URL = "https://connect.mailerlite.com/api/subscribers";
 const MAILERLITE_API_VERSION = "2026-05-18";
 const MAX_REQUEST_BODY_BYTES = 4096;
+const MAX_PROVIDER_ERROR_LOG_BYTES = 1000;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ALLOWED_SUBSCRIBER_STATUSES = new Set([
   "active",
@@ -38,6 +39,53 @@ const parseSubscriberStatus = (env) => {
   return ALLOWED_SUBSCRIBER_STATUSES.has(status) ? status : "";
 };
 
+const readProviderErrorBody = async (response) => {
+  try {
+    const text = await response.text();
+    return text.slice(0, MAX_PROVIDER_ERROR_LOG_BYTES);
+  } catch {
+    return "";
+  }
+};
+
+const parseProviderErrorBody = (bodyText) => {
+  if (!bodyText) return {};
+  try {
+    return JSON.parse(bodyText);
+  } catch {
+    return {};
+  }
+};
+
+const hasProviderFieldError = (providerError, fieldName) => {
+  const errors = providerError?.errors;
+  return Boolean(errors && typeof errors === "object" && errors[fieldName]);
+};
+
+const mapProviderError = (status, providerError) => {
+  if (status === 401) return "mailer_auth_failed";
+  if (status === 403) return "mailer_forbidden";
+  if (status === 429) return "mailer_rate_limited";
+
+  if (status === 422) {
+    if (hasProviderFieldError(providerError, "email")) return "invalid_email";
+    if (hasProviderFieldError(providerError, "groups")) return "mailer_invalid_group";
+    return "mailer_validation_failed";
+  }
+
+  return "subscription_failed";
+};
+
+const logProviderError = (logger, status, statusText, bodyText) => {
+  if (!logger?.warn) return;
+
+  logger.warn("MailerLite subscribe request failed", {
+    status,
+    statusText,
+    body: bodyText || undefined,
+  });
+};
+
 export function readNodeRequestBody(req) {
   return new Promise((resolve, reject) => {
     let body = "";
@@ -54,7 +102,7 @@ export function readNodeRequestBody(req) {
   });
 }
 
-export async function handleMailerLiteSubscribe({ method, bodyText, env, fetchImpl }) {
+export async function handleMailerLiteSubscribe({ method, bodyText, env, fetchImpl, logger = console }) {
   if (method === "OPTIONS") {
     return json(204, {});
   }
@@ -111,7 +159,10 @@ export async function handleMailerLiteSubscribe({ method, bodyText, env, fetchIm
       },
       body: JSON.stringify(payload),
     });
-  } catch {
+  } catch (error) {
+    logger?.warn?.("MailerLite subscribe request could not be sent", {
+      message: error instanceof Error ? error.message : String(error),
+    });
     return json(502, { error: "subscription_failed" });
   }
 
@@ -119,9 +170,14 @@ export async function handleMailerLiteSubscribe({ method, bodyText, env, fetchIm
     return json(200, { ok: true });
   }
 
-  if (response.status === 422) {
+  const providerErrorBody = await readProviderErrorBody(response);
+  const providerError = parseProviderErrorBody(providerErrorBody);
+  const error = mapProviderError(response.status, providerError);
+  logProviderError(logger, response.status, response.statusText, providerErrorBody);
+
+  if (error === "invalid_email") {
     return json(400, { error: "invalid_email" });
   }
 
-  return json(502, { error: "subscription_failed" });
+  return json(502, { error });
 }
