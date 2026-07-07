@@ -78,7 +78,7 @@
               <a class="button button-primary" href="updates/index.html">Sign Up To Hear When We Launch</a>
             </div>
 
-            <p class="trust-line">No install &middot; No account necessary &middot; Files stay local</p>
+            <p class="trust-line">No install &middot; Local-first by default &middot; Optional cloud sync</p>
           </div>
 
           <div class="hero-media" aria-hidden="true">
@@ -190,10 +190,10 @@
             </article>
 
             <article class="card">
-              <h3>Files stay yours</h3>
+              <h3>Local-first, with cloud when you want it</h3>
               <p>
-                No accounts required. Your robots, scenes, and projects live in your browser and
-                your local files.
+                Use the editor without an account and keep projects in browser storage or local
+                .critter files. Sign in when you want cloud save, autosave history, or share links.
               </p>
             </article>
 
@@ -226,10 +226,11 @@
             </article>
 
             <article class="feature-item">
-              <h3>Import standard MJCF/XML models with meshes</h3>
+              <h3>Import MJCF/XML, URDF, and Xacro projects</h3>
               <p>
-                Critter Engine parses them and gives you a visual handle on every body, joint,
-                tendon, constraint, inertial, mesh, collision, and more. Edit in just a few clicks.
+                Bring in MJCF/XML models with meshes, or import many URDF/Xacro robot packages with
+                referenced meshes and config files. Critter expands supported Xacro patterns in the
+                browser and flags missing dependencies.
               </p>
             </article>
 
@@ -247,8 +248,11 @@
             </article>
 
             <article class="feature-item">
-              <h3>Full MuJoCo sensor support</h3>
-              <p>IMUs, force/torque, touch, joint and actuator state, tendons, and the rest.</p>
+              <h3>MuJoCo sensors you can inspect, edit, and record</h3>
+              <p>
+                Add or edit common MuJoCo sensors for sites, joints, actuators, tendons, subtrees,
+                and clocks, then inspect live sensordata and export recordings as JSON or CSV.
+              </p>
             </article>
           </div>
         </div>
@@ -304,7 +308,10 @@
 
             <article class="card">
               <h3>Save and share</h3>
-              <p>Export your project as a single portable file and reopen it anywhere.</p>
+              <p>
+                Save locally as a portable .critter project, or sign in to save cloud versions,
+                restore autosaves, and create read-only or editable share links.
+              </p>
             </article>
           </div>
         </div>
@@ -321,15 +328,20 @@
             <details>
               <summary>Where is my data stored?</summary>
               <p>
-                Locally. Your files live in your browser, your downloads folder, and nowhere else.
-                Optional caching of uploaded meshes between sessions is opt-in. Cloud storage is
-                coming soon, and will also be opt-in.
+                By default, projects and uploaded assets stay in your browser storage and in files
+                you download, such as .critter project archives. If you sign in and use cloud save,
+                Critter stores project versions and referenced assets in Critter cloud so you can
+                reopen or share them. Cloud storage is optional, and local export still works
+                without an account.
               </p>
             </details>
 
             <details>
               <summary>Do I need an account?</summary>
-              <p>No.</p>
+              <p>
+                No for local editing, importing, simulation, and exporting. Yes for cloud projects,
+                cloud autosave history, and share links.
+              </p>
             </details>
 
             <details>
@@ -339,7 +351,11 @@
 
             <details>
               <summary>Can I import an existing model?</summary>
-              <p>Yes. Import MJCF/XML with meshes, edit visually, export it back out.</p>
+              <p>
+                Yes. Import MJCF/XML with meshes, plus many URDF and Xacro robot projects.
+                URDF/Xacro support is compatibility-focused, so ROS/Gazebo-specific simulator
+                metadata may be reported and skipped.
+              </p>
             </details>
 
             <details>
@@ -351,7 +367,7 @@
               <summary>Is it free?</summary>
               <p>
                 Yes. The in-browser editor is the heart of the product and we intend to keep it
-                free. Any future cloud or team features would be optional paid add-ons.
+                free. Optional cloud or team features may become paid add-ons as the product grows.
               </p>
             </details>
           </div>
@@ -363,7 +379,7 @@
           <div>
             <p class="eyebrow">Critter Engine</p>
             <h2>Stop debugging robots in a text editor.</h2>
-            <p class="trust-line">No install &middot; No account necessary &middot; Files stay local</p>
+            <p class="trust-line">No install &middot; Local-first by default &middot; Optional cloud sync</p>
           </div>
 
           <a
