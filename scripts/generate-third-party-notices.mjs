@@ -19,7 +19,8 @@ const generatedDate = process.env.NOTICES_GENERATED_DATE || formatDate(new Date(
 
 const LICENSE_LINKS = [
   { test: /Apache(?: License)? 2\.0|Apache-2\.0/i, label: "Apache License 2.0", url: "https://www.apache.org/licenses/LICENSE-2.0" },
-  { test: /BSD[- ]3[- ]Clause/i, label: "BSD 3-Clause", url: "https://opensource.org/license/bsd-3-clause" },
+  { test: /Clear BSD|BSD[- ]3[- ]Clause[- ]Clear/i, label: "The Clear BSD License", url: "https://spdx.org/licenses/BSD-3-Clause-Clear.html" },
+  { test: /BSD[- ]3[- ]Clause(?![- ]?Clear)/i, label: "BSD 3-Clause", url: "https://opensource.org/license/bsd-3-clause" },
   { test: /BSD[- ]2[- ]Clause/i, label: "BSD 2-Clause", url: "https://opensource.org/license/bsd-2-clause" },
   { test: /\bMIT\b/i, label: "MIT License", url: "https://opensource.org/license/mit" },
   { test: /\bISC\b/i, label: "ISC License", url: "https://opensource.org/license/isc-license-txt" },
@@ -35,6 +36,28 @@ const SECTION_SOURCES = {
   textures: "Critter texture manifest",
   dependencies: "Production dependency license scan",
 };
+
+const ITEM_NAME_OVERRIDES = new Map([
+  ["Iit Softfoot", "IIT SoftFoot"],
+  ["I2rt Yam", "I2RT YAM"],
+  ["Trs So Arm100", "TRS SO-ARM100"],
+  ["Robotis Op3", "ROBOTIS OP3"],
+  ["Arx L5", "ARX L5"],
+]);
+
+const AUTHOR_OVERRIDES = new Map([
+  ["Franka Emika Panda", ["Google DeepMind / MuJoCo Menagerie"]],
+  ["TetherIA Aero Hand Open", ["Copyright 2025 TetherIA Inc."]],
+  ["MolmoSpaces THOR Object Subset", ["Allen Institute for AI"]],
+  ["Scene HDRIs", ["Studio Small 08 by Sergej Majboroda", "Ferndale Studio 03 by Dimitrios Savva and Greg Zaal"]],
+]);
+
+const SOURCE_OWNER_FALLBACKS = [
+  { test: /github\.com\/google-deepmind\/mujoco_menagerie/i, label: "Google DeepMind / MuJoCo Menagerie" },
+  { test: /github\.com\/unitreerobotics\/unitree_mujoco/i, label: "Unitree Robotics" },
+  { test: /github\.com\/Farama-Foundation\/Gymnasium-Robotics/i, label: "Farama Foundation / Gymnasium Robotics" },
+  { test: /huggingface\.co\/datasets\/allenai\/molmospaces/i, label: "Allen Institute for AI" },
+];
 
 const appNotices = parseAttributionFile(readRequired(appAttributionsPath), {
   root: appRoot,
@@ -81,7 +104,8 @@ function parseAttributionFile(markdown, options) {
   return chunks
     .map((chunk) => parseAttributionSection(chunk, options))
     .filter(Boolean)
-    .map((notice) => enrichAssetNotice(notice, options));
+    .map((notice) => enrichAssetNotice(notice, options))
+    .filter(Boolean);
 }
 
 function parseAttributionSection(section, options) {
@@ -108,8 +132,152 @@ function parseAttributionSection(section, options) {
   };
 }
 
-function enrichAssetNotice(notice) {
-  return notice;
+function enrichAssetNotice(notice, options) {
+  const enriched = {
+    ...notice,
+    itemName: normalizeItemName(notice),
+    sourceUrls: normalizeNoticeSourceUrls(notice),
+    copyright: [...notice.copyright],
+    licenseTextLinks: [...notice.licenseTextLinks],
+    notes: [...notice.notes],
+  };
+
+  applyAuthorOverrides(enriched);
+
+  const licenseFile = findNearbyLicenseFile(enriched.locations, options.root);
+  if (licenseFile) {
+    for (const copyright of extractCopyrightNotices(licenseFile.text)) addUniqueString(enriched.copyright, copyright);
+    const licenseFileUrl = upstreamLicenseUrl(enriched.sourceUrls[0]?.url);
+    if (licenseFileUrl) addUnique(enriched.licenseTextLinks, { label: "Upstream LICENSE", url: licenseFileUrl });
+  }
+
+  if (enriched.itemName === "MolmoSpaces THOR Object Subset") {
+    addUnique(enriched.sourceUrls, { label: "https://huggingface.co/datasets/allenai/molmospaces", url: "https://huggingface.co/datasets/allenai/molmospaces" });
+    addUnique(enriched.licenseTextLinks, { label: "Creative Commons Attribution 4.0", url: "https://creativecommons.org/licenses/by/4.0/" });
+  }
+
+  if (!enriched.copyright.length) {
+    const fallback = sourceOwnerFallback(enriched.sourceUrls);
+    if (fallback) addUniqueString(enriched.copyright, fallback);
+  }
+
+  if (!enriched.licenseTextLinks.length) {
+    const standardLinks = licenseTextLinks(enriched.licenseName, enriched.sourceUrls.map((source) => source.url));
+    for (const link of standardLinks) addUnique(enriched.licenseTextLinks, link);
+  }
+
+  enriched.notes = cleanNoticeNotes(enriched.notes);
+  return enriched;
+}
+
+function normalizeItemName(notice) {
+  if (notice.itemName === "Unitree H1") {
+    if (notice.locations.some((location) => /robots\/h1\/?$/i.test(location))) return "Unitree H1 (unitree_mujoco)";
+    if (notice.locations.some((location) => /robots\/unitree_h1\/?$/i.test(location))) return "Unitree H1 (MuJoCo Menagerie)";
+  }
+  return ITEM_NAME_OVERRIDES.get(notice.itemName) || notice.itemName;
+}
+
+function normalizeNoticeSourceUrls(notice) {
+  const sourceUrls = notice.sourceUrls.map((source) => ({ ...source, label: source.url }));
+  if (notice.itemName === "MolmoSpaces THOR Object Subset") {
+    addUnique(sourceUrls, { label: "https://huggingface.co/datasets/allenai/molmospaces", url: "https://huggingface.co/datasets/allenai/molmospaces" });
+  }
+  return sourceUrls;
+}
+
+function applyAuthorOverrides(notice) {
+  for (const value of AUTHOR_OVERRIDES.get(notice.itemName) || []) addUniqueString(notice.copyright, value);
+
+  if (notice.itemName === "Scene HDRIs") {
+    for (const source of notice.sourceUrls) {
+      if (/studio_small_08/i.test(source.url)) addUniqueString(notice.copyright, "Studio Small 08 by Sergej Majboroda");
+      if (/ferndale_studio_03/i.test(source.url)) addUniqueString(notice.copyright, "Ferndale Studio 03 by Dimitrios Savva and Greg Zaal");
+    }
+  }
+}
+
+function findNearbyLicenseFile(locations, root) {
+  const candidates = [];
+
+  for (const location of locations) {
+    const firstLocation = location
+      .split("\n")[0]
+      .replace(/`/g, "")
+      .replace(/^[-\s]+/, "")
+      .replace(/\s+in\s+CritterEngine\/critter-assets$/i, "")
+      .trim()
+      .replace(/[\\/]$/, "");
+
+    if (!firstLocation || /public\//i.test(firstLocation)) continue;
+    const basename = path.basename(firstLocation);
+
+    for (const relativePath of [
+      path.join(firstLocation, "LICENSE"),
+      path.join(firstLocation, "LICENSE.txt"),
+      path.join(firstLocation, "LICENSE.md"),
+      path.join("robots", basename, "LICENSE"),
+      path.join("attachments", basename, "LICENSE"),
+      path.join("objects", basename, "LICENSE"),
+    ]) {
+      candidates.push(relativePath);
+    }
+
+    if (/^robots\/(a2|b2|b2w|go2w|h1|h1_2)\/?$/i.test(firstLocation)) {
+      candidates.push(path.join("robots", "unitree_LICENSE"));
+    }
+  }
+
+  for (const relativePath of candidates) {
+    const absolutePath = path.join(root, relativePath);
+    if (existsSync(absolutePath)) return { relativePath, text: readFileSync(absolutePath, "utf8") };
+  }
+
+  return null;
+}
+
+function extractCopyrightNotices(text) {
+  const notices = [];
+  const normalized = text.replace(/\r\n/g, "\n");
+  const copyrightLine = /^Copyright(?: \(c\))?\s+(?:\[[0-9]{4}\]\s+\[[^\]]+\]|<[^>]+>|[0-9]{4}(?:[-\u2013][0-9]{2,4})?)(?:\b|\s|$)/i;
+
+  for (const line of normalized.split("\n")) {
+    const trimmed = line.trim();
+    if (copyrightLine.test(trimmed) && !/\[yyyy\]/i.test(trimmed)) addUniqueString(notices, trimmed);
+    if (/^All rights reserved\.?$/i.test(trimmed)) addUniqueString(notices, trimmed);
+  }
+
+  return notices;
+}
+
+function upstreamLicenseUrl(sourceUrl) {
+  if (!sourceUrl || !/github\.com/i.test(sourceUrl)) return "";
+  const repoMatch = sourceUrl.match(/^(https:\/\/github\.com\/[^/]+\/[^/]+)(?:\/tree\/([^/]+)\/(.*)|\/tree\/([^/]+)|\/blob\/([^/]+)\/.*)?$/i);
+  if (!repoMatch) return "";
+
+  const repo = repoMatch[1];
+  const branch = repoMatch[2] || repoMatch[4] || repoMatch[5] || "main";
+  const repoPath = (repoMatch[3] || "").replace(/\/$/, "");
+
+  if (/unitree_mujoco/i.test(repo)) return `${repo}/blob/${branch}/LICENSE`;
+  if (repoPath) return `${repo}/blob/${branch}/${repoPath}/LICENSE`;
+  // The local attribution-file layout does not mirror upstream repos, so never
+  // build upstream URLs from local relative paths; fall back to the repo root.
+  return `${repo}/blob/${branch}/LICENSE`;
+}
+
+function sourceOwnerFallback(sourceUrls) {
+  for (const source of sourceUrls) {
+    const match = SOURCE_OWNER_FALLBACKS.find((candidate) => candidate.test.test(source.url));
+    if (match) return match.label;
+  }
+  return "";
+}
+
+function cleanNoticeNotes(notes) {
+  return notes
+    .filter((note) => !/testing-only|slated for deletion/i.test(note))
+    .map((note) => note.replace(/licensed under the Apache License 2\.0\. A copy is available at$/i, "licensed under the Apache License 2.0. A copy is available at https://www.apache.org/licenses/LICENSE-2.0"));
 }
 
 function parseFields(body) {
@@ -234,6 +402,7 @@ function readNearbyLicenseFile(location, root) {
 
 function inferLicenseNameFromText(text) {
   if (!text) return "";
+  if (/The Clear BSD License/i.test(text)) return "The Clear BSD License (BSD-3-Clause-Clear)";
   if (/Apache License[\s\S]{0,80}Version 2\.0/i.test(text)) return "Apache License 2.0";
   if (/BSD 3-Clause License/i.test(text)) return "BSD 3-Clause";
   if (/BSD 2-Clause License/i.test(text)) return "BSD 2-Clause";
@@ -257,6 +426,8 @@ function collectNotes(fields, body, rawLicense, inferred) {
 
   for (const line of body.split("\n")) {
     const trimmed = stripMarkdown(line.trim().replace(/^>\s?/, ""));
+    // Skip field lines (e.g. "Note:", "License:") that parseFields already captured.
+    if (/^[A-Za-z ]+:/.test(trimmed)) continue;
     if (/verify|copy of the .*license|included at|available at|repository license/i.test(trimmed)) {
       addUniqueString(notes, trimmed);
     }
@@ -428,10 +599,8 @@ function renderPage({ appNotices, catalogNotices, textureNotices, dependencyNoti
           <section class="notice-section" aria-labelledby="notice-sources">
             <h2 id="notice-sources">Source Records</h2>
             <p>
-              This page is generated from <code>ATTRIBUTIONS.md</code>,
-              <code>CritterEngine/critter-assets/Attributions.txt</code>,
-              <code>public/textures/manifest.json</code>, and
-              <code>pnpm --dir critterapp licenses list --prod --json</code>.
+              This page is generated from Critter's internal attribution records and a
+              production dependency license scan.
             </p>
           </section>
 
@@ -524,7 +693,7 @@ function renderAssetNotice(notice) {
 }
 
 function renderDependencyRow(notice) {
-  const item = `${notice.itemName}@${notice.versions.join(", ")}`;
+  const item = [notice.itemName, notice.versions.join(", ")].filter(Boolean).join(" ");
   return `<tr>
                     <td>${escapeHtml(item)}</td>
                     <td><a href="${escapeAttribute(notice.sourceUrl)}">${escapeHtml(notice.sourceUrl)}</a></td>

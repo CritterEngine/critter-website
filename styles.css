@@ -951,7 +951,7 @@ details p {
 }
 
 .notice-table-wrap {
-  overflow-x: auto;
+  overflow-x: visible;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.035);
@@ -959,10 +959,10 @@ details p {
 
 .notice-table {
   width: 100%;
-  min-width: 1040px;
   border-collapse: collapse;
   color: var(--muted);
   font-size: 13px;
+  table-layout: fixed;
 }
 
 .notice-table th,
@@ -978,6 +978,40 @@ details p {
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.notice-table th:nth-child(1),
+.notice-table td:nth-child(1) {
+  width: 16%;
+}
+
+.notice-table th:nth-child(2),
+.notice-table td:nth-child(2) {
+  width: 24%;
+}
+
+.notice-table th:nth-child(3),
+.notice-table td:nth-child(3) {
+  width: 16%;
+}
+
+.notice-table th:nth-child(4),
+.notice-table td:nth-child(4) {
+  width: 10%;
+}
+
+.notice-table th:nth-child(5),
+.notice-table td:nth-child(5) {
+  width: 14%;
+}
+
+.notice-table th:nth-child(6),
+.notice-table td:nth-child(6) {
+  width: 20%;
+}
+
+.notice-table td {
+  overflow-wrap: anywhere;
 }
 
 .notice-table tr:last-child td {
@@ -1061,6 +1095,86 @@ button:disabled {
   .notice-grid,
   .notice-grid-compact {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notice-table-wrap {
+    border: 0;
+    background: transparent;
+  }
+
+  .notice-table,
+  .notice-table tbody,
+  .notice-table tr,
+  .notice-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .notice-table td:nth-child(n) {
+    width: 100%;
+  }
+
+  .notice-table thead {
+    display: none;
+  }
+
+  .notice-table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .notice-table tr {
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .notice-table td {
+    display: grid;
+    grid-template-columns: minmax(112px, 0.34fr) minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .notice-table td::before {
+    color: var(--subtle);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .notice-table td:nth-child(1)::before {
+    content: "Item";
+  }
+
+  .notice-table td:nth-child(2)::before {
+    content: "Source URL";
+  }
+
+  .notice-table td:nth-child(3)::before {
+    content: "Author";
+  }
+
+  .notice-table td:nth-child(4)::before {
+    content: "License";
+  }
+
+  .notice-table td:nth-child(5)::before {
+    content: "License text";
+  }
+
+  .notice-table td:nth-child(6)::before {
+    content: "Attribution";
+  }
+
+  .notice-table tr:last-child td {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .notice-table tr td:last-child {
+    border-bottom: 0;
   }
 }
 
