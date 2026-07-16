@@ -666,6 +666,10 @@ function renderPage({ appNotices, catalogNotices, textureNotices, dependencyNoti
           <span class="dot" aria-hidden="true">&middot;</span>
           <a href="../../feedback/index.html">Send Feedback</a>
           <span class="dot" aria-hidden="true">&middot;</span>
+          <a href="../../legal/privacy-policy/">Privacy Policy</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a href="../../legal/terms-of-service/">Terms Of Service</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
           <a href="../../legal/third-party-notices/" aria-current="page">Third-Party Notices</a>
         </p>
       </div>
