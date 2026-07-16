@@ -43,6 +43,9 @@ const ITEM_NAME_OVERRIDES = new Map([
   ["Trs So Arm100", "TRS SO-ARM100"],
   ["Robotis Op3", "ROBOTIS OP3"],
   ["Arx L5", "ARX L5"],
+  ["Pal Talos", "PAL Talos"],
+  ["Pal Tiago", "PAL TIAGo"],
+  ["Pal Tiago Dual", "PAL TIAGo Dual"],
 ]);
 
 const AUTHOR_OVERRIDES = new Map([
