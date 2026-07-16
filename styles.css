@@ -951,7 +951,7 @@ details p {
 }
 
 .notice-table-wrap {
-  overflow-x: visible;
+  overflow-x: auto;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.035);
@@ -959,6 +959,7 @@ details p {
 
 .notice-table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
   color: var(--muted);
   font-size: 13px;
