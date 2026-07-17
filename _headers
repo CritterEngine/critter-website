@@ -1,0 +1,17 @@
+/legal/terms-of-service
+  Cache-Control: no-transform
+
+/legal/terms-of-service/
+  Cache-Control: no-transform
+
+/legal/terms-of-service/*
+  Cache-Control: no-transform
+
+/legal/privacy-policy
+  Cache-Control: no-transform
+
+/legal/privacy-policy/
+  Cache-Control: no-transform
+
+/legal/privacy-policy/*
+  Cache-Control: no-transform
