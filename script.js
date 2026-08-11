@@ -115,7 +115,7 @@ if (feedbackForm && feedbackStatus) {
     }
 
     try {
-      const response = await fetch("https://formspree.io/f/mlgzbqdk", {
+      const response = await fetch("https://formspree.io/f/xeajgpzp", {
         method: "POST",
         headers: { accept: "application/json" },
         body: new FormData(feedbackForm),

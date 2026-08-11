@@ -1,0 +1,126 @@
+.lab-contact-page {
+  min-height: calc(100vh - 150px);
+  padding-top: clamp(52px, 7vw, 88px);
+}
+
+.lab-contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(440px, 0.74fr);
+  gap: clamp(40px, 7vw, 90px);
+  align-items: start;
+}
+
+.lab-contact-copy {
+  position: sticky;
+  top: 104px;
+}
+
+.lab-contact-copy h1 {
+  max-width: 11ch;
+  font-size: clamp(44px, 5.2vw, 68px);
+  letter-spacing: -0.035em;
+}
+
+.lab-contact-copy .lead {
+  margin-top: 22px;
+}
+
+.lab-interest-form {
+  display: grid;
+  gap: 17px;
+  padding: clamp(22px, 4vw, 32px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+  box-shadow: var(--shadow);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.form-field label span {
+  color: var(--subtle);
+  font-weight: 600;
+}
+
+.form-field select {
+  width: 100%;
+  min-height: 49px;
+  border: 1px solid rgba(210, 239, 228, 0.22);
+  border-radius: var(--radius);
+  background: #0a111e;
+  color: var(--text);
+  font: inherit;
+  padding: 11px 38px 11px 13px;
+}
+
+.form-field select:focus {
+  border-color: rgba(34, 199, 214, 0.72);
+  outline: none;
+}
+
+.call-preference {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid rgba(34, 199, 214, 0.3);
+  border-radius: var(--radius);
+  background: rgba(34, 199, 214, 0.07);
+  cursor: pointer;
+}
+
+.call-preference input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+}
+
+.call-preference span {
+  display: grid;
+  gap: 3px;
+}
+
+.call-preference strong {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.call-preference small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.form-status[data-state="draft"] {
+  color: var(--accent);
+}
+
+@media (max-width: 940px) {
+  .lab-contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-contact-copy {
+    position: static;
+  }
+
+}
+
+@media (max-width: 620px) {
+  .lab-contact-copy h1 {
+    font-size: clamp(40px, 12vw, 54px);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-interest-form {
+    padding: 20px;
+  }
+}

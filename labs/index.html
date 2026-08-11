@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Critter Engine gives robotics research labs and courses a visual, browser-native workspace for building, testing, and sharing robot models." />
+    <title>Robotics Labs | Critter Engine</title>
+    <link rel="icon" href="../logo/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="../logo/favicon.png" />
+    <link rel="apple-touch-icon" href="../logo/icon-192.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="labs.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html" aria-label="Critter Engine home">
+          <img class="brand-mark" src="../logo/logo.svg" alt="" />
+          <span class="brand-name">Critter Engine</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="Primary" data-site-nav>
+          <a href="../index.html#why">Why Critter Engine</a>
+          <a href="../index.html#use-cases">Use Cases</a>
+          <a href="../index.html#features">Features</a>
+          <a href="../index.html#plans">Plans</a>
+          <a href="../index.html#faq">FAQ</a>
+          <a href="../updates/index.html">Updates</a>
+        </nav>
+        <a class="button button-primary header-cta" href="../updates/index.html">Join Launch List</a>
+      </div>
+    </header>
+
+    <aside class="launch-banner" aria-label="Launch status">
+      <div class="container launch-banner-inner">
+        <strong>Launching soon.</strong>
+        <span>Critter Engine is not publicly available yet, but we&rsquo;d be happy to hear what you&rsquo;re working on.</span>
+      </div>
+    </aside>
+
+    <main id="main">
+      <section class="labs-hero" aria-label="Robotics labs introduction">
+        <div class="container labs-hero-grid">
+          <div class="labs-hero-copy">
+            <p class="eyebrow">Critter Engine for robotics labs</p>
+            <h1>Build the model. Understand the physics. Keep moving.</h1>
+            <p class="lead">Give students and researchers a visual workspace for building, inspecting, testing, and sharing robot models&mdash;directly in the browser and without giving up standard robotics formats.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="contact/index.html">Talk with us about a lab pilot</a>
+              <a class="button button-secondary" href="#research">Explore lab workflows</a>
+            </div>
+            <p class="trust-line">Core editor free &middot; No install &middot; Local-first by default</p>
+          </div>
+          <div class="labs-hero-media">
+            <img src="../images/quad-1200x1361.jpg" alt="A quadruped robot being tested in a robotics lab" loading="eager" decoding="async" />
+            <p class="media-caption">Bring robot models into Critter, inspect the physics, and export them back to your workflow.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="audience-rail" aria-label="Who Critter Engine is for">
+        <div class="container audience-grid">
+          <article><h2>Research labs</h2><p>Iterate on models without turning the editor into your research stack.</p></article>
+          <article><h2>Robotics courses</h2><p>Spend class time on robotics instead of environment setup.</p></article>
+          <article><h2>Project teams</h2><p>Give the group a shared home without taking the free editor away.</p></article>
+        </div>
+      </section>
+
+      <section id="research" class="section labs-feature-section">
+        <div class="container labs-split">
+          <div class="labs-photo-card">
+            <img src="../images/pexels-pavel-danilyuk-8438877.jpg" alt="A robot gripper moving a chess piece in a manipulation experiment" loading="lazy" decoding="async" />
+            <p class="photo-note">Keep your research workflow at the center.</p>
+          </div>
+          <div class="labs-copy">
+            <p class="eyebrow">For research</p>
+            <h2>Faster model iteration, without a proprietary dead end.</h2>
+            <p class="lead">Bring in an existing robot, investigate what the model is actually doing, and export the result back to the tools your research already uses.</p>
+            <ul class="outcome-list">
+              <li><strong>See the whole physical model.</strong> Inspect bodies, joints, inertias, collisions, sites, tendons, actuators, and sensors in one visual workspace.</li>
+              <li><strong>Test ideas while they are still cheap.</strong> Run real-time physics in the browser before handing the model to training, controls, or hardware workflows.</li>
+              <li><strong>Work with the formats you already have.</strong> Import MJCF/XML and many URDF or Xacro projects, then export clean MJCF for current MuJoCo 3.x runtimes.</li>
+              <li><strong>Capture evidence, not just impressions.</strong> Inspect live sensor data and export recordings for analysis outside Critter.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="teaching" class="section section-alt labs-feature-section">
+        <div class="container labs-split labs-split-reverse">
+          <div class="labs-copy">
+            <p class="eyebrow">For teaching</p>
+            <h2>Make robot physics visible from day one.</h2>
+            <p class="lead">Students can open the editor and start exploring without installing Docker, rebuilding a Python environment, or learning XML before they can see a joint move.</p>
+            <div class="teaching-grid">
+              <article><p class="micro-label">Start together</p><h3>One browser-based environment</h3><p>A consistent workspace across student machines, with local editing available without an account.</p></article>
+              <article><p class="micro-label">Learn by seeing</p><h3>Visual structure and feedback</h3><p>Connect the model hierarchy, joint axes, collision geometry, and inertial choices directly to simulated behavior.</p></article>
+              <article><p class="micro-label">Teach the standard</p><h3>Real physics, inspectable models</h3><p>Critter works with standard robot formats rather than hiding the model. Students can take exported MJCF into code when they are ready.</p></article>
+              <article><p class="micro-label">Choose your boundary</p><h3>AI is optional</h3><p>Use the visual editor on its own, or make the assistant part of a lab workflow when it fits the learning objective.</p></article>
+            </div>
+          </div>
+          <div class="teaching-visual">
+            <div class="teaching-image-wrap">
+              <img src="../images/pexels-kjbromme-16544054.jpg" alt="A collaborative robot arm and gripper in a laboratory" loading="lazy" decoding="async" />
+            </div>
+            <div class="classroom-note">
+              <p class="micro-label">Less setup. More robotics.</p>
+              <p>Every student starts in the same browser-based editor. When it is time to write code, they can export the model as MJCF and continue in the course's existing programming workflow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="teams" class="section labs-team-section">
+        <div class="container">
+          <div class="section-head labs-centered-head">
+            <p class="eyebrow">Free for building. Paid for coordinating.</p>
+            <h2>Individuals get the editor. Labs get an operating home.</h2>
+            <p class="lead">A generous free editor lets every student or researcher begin. Team plans are for the ownership, coordination, and support that appear when the work becomes shared.</p>
+          </div>
+          <div class="plan-contrast">
+            <article class="plan-card">
+              <p class="plan-kicker">Individual</p><h3>Explore and build free</h3>
+              <p class="plan-summary">For a student, researcher, or engineer working independently.</p>
+              <ul><li>Visual robot editing</li><li>Browser-based MuJoCo physics</li><li>Local project files</li><li>Standard import and export</li></ul>
+            </article>
+            <article class="plan-card plan-card-team">
+              <p class="plan-kicker">Lab or course</p><h3>Coordinate the work as a team</h3>
+              <p class="plan-summary">For faculty and lab leads who need the work to belong to the group.</p>
+              <ul><li>Lab-owned shared projects</li><li>Member roles and permissions</li><li>Cloud versions, comments, and sharing</li><li>Centralized assistant access and usage</li></ul>
+            </article>
+          </div>
+          <p class="plan-footnote">If everyone is working independently, the free editor may be all you need. The team plan becomes useful when the lab needs continuity, shared ownership, and coordination.</p>
+        </div>
+      </section>
+
+      <section class="section section-alt lab-workflow-section">
+        <div class="container">
+          <div class="section-head"><p class="eyebrow">A shorter path to useful work</p><h2>From source model to experiment in one continuous loop.</h2></div>
+          <ol class="workflow-steps">
+            <li><div class="step-heading"><span class="step-number">01</span><h3>Bring the robot in</h3></div><p>Import an existing model or begin with a familiar robot from the library.</p></li>
+            <li><div class="step-heading"><span class="step-number">02</span><h3>Inspect and change it</h3></div><p>Work directly with the physical structure instead of hunting through files.</p></li>
+            <li><div class="step-heading"><span class="step-number">03</span><h3>Run the physics</h3></div><p>Exercise joints, constraints, sensors, contacts, and behaviors in the browser.</p></li>
+            <li><div class="step-heading"><span class="step-number">04</span><h3>Take it downstream</h3></div><p>Export the model or recordings and continue in your research or course stack.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="container">
+          <div class="section-head"><p class="eyebrow">Questions from labs</p><h2>Start with the workflow you already have.</h2></div>
+          <div class="faq-list">
+            <details><summary>Does every student need a paid account?</summary><p>No. The core in-browser editor is intended to remain free. A paid team plan is for shared lab ownership, coordination, cloud workflows, and assistant access.</p></details>
+            <details><summary>Does Critter replace our simulator or research code?</summary><p>No. Critter uses MuJoCo for its browser physics and works with standard robot formats so models can continue into the tools, scripts, controllers, and training workflows your lab already uses.</p></details>
+            <details><summary>Can projects stay local?</summary><p>Yes. Local editing and portable .critter project files work without an account. Cloud projects and sharing are optional.</p></details>
+            <details><summary>Is the AI assistant required?</summary><p>No. Critter is a visual robot editor and simulation environment without the assistant. Labs can choose whether AI belongs in their research or teaching workflow.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-cta labs-final-cta">
+        <div class="container cta-block">
+          <div><p class="eyebrow">A founding lab pilot</p><h2>Bring one course, one project, or one robot.</h2><p class="trust-line">Research or teaching &middot; Small cohort &middot; Direct support</p></div>
+          <a class="button button-primary" href="contact/index.html">Tell us what your lab is working on</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="footer-brand" href="../index.html" aria-label="Critter Engine home"><img class="footer-mark" src="../logo/logo.svg" alt="" /><span>Critter Engine</span></a>
+        <p class="footer-meta"><span>&copy; <span id="year"></span></span><span class="dot" aria-hidden="true">&middot;</span><a href="../index.html">Product overview</a><span class="dot" aria-hidden="true">&middot;</span><a href="../feedback/index.html">Send Feedback</a><span class="dot" aria-hidden="true">&middot;</span><a href="../legal/privacy-policy/">Privacy Policy</a><span class="dot" aria-hidden="true">&middot;</span><a href="../legal/terms-of-service/">Terms Of Service</a></p>
+      </div>
+    </footer>
+    <script src="../script.js" defer></script>
+  </body>
+</html>

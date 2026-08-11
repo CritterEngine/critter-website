@@ -87,6 +87,28 @@ img {
   backdrop-filter: blur(14px);
 }
 
+.launch-banner {
+  border-bottom: 1px solid rgba(34, 199, 214, 0.32);
+  background: rgba(34, 199, 214, 0.08);
+}
+
+.launch-banner-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+.launch-banner strong {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -637,6 +659,136 @@ h3 {
   color: var(--muted);
 }
 
+.use-case-head .lead {
+  margin-top: 18px;
+}
+
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.use-case-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  padding: 28px 24px 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+}
+
+.use-case-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(144, 245, 200, 0.18));
+}
+
+.use-case-card h3 {
+  max-width: 18ch;
+  margin-bottom: 14px;
+  font-size: 22px;
+}
+
+.use-case-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.use-case-card-link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 22px;
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: rgba(34, 199, 214, 0.42);
+  text-underline-offset: 4px;
+}
+
+.use-case-card-link:hover {
+  color: var(--accent-2);
+  text-decoration-color: currentColor;
+}
+
+.home-plans-head {
+  display: grid;
+  justify-items: center;
+  max-width: 860px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.home-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 920px;
+  margin: 38px auto 0;
+}
+
+.home-plan-card {
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+}
+
+.home-plan-card-team {
+  border-color: rgba(34, 199, 214, 0.42);
+  background: linear-gradient(145deg, rgba(34, 199, 214, 0.16), rgba(144, 245, 200, 0.05)), rgba(255, 255, 255, 0.03);
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.24);
+}
+
+.home-plan-kicker {
+  margin: 0 0 13px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-plan-card h3 {
+  font-size: 24px;
+}
+
+.home-plan-summary {
+  min-height: 4.65em;
+  margin: 0;
+  color: var(--muted);
+}
+
+.home-plan-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.home-plan-card li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--muted);
+}
+
+.home-plan-card li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: var(--accent-2);
+  font-weight: 900;
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -1092,6 +1244,8 @@ button:disabled {
 
   .cards-three,
   .cards-six,
+  .use-case-grid,
+  .home-plan-grid,
   .faq-list,
   .notice-grid,
   .notice-grid-compact {
@@ -1180,6 +1334,15 @@ button:disabled {
 }
 
 @media (max-width: 620px) {
+  .launch-banner-inner {
+    display: block;
+  }
+
+  .launch-banner strong {
+    display: block;
+    margin-bottom: 2px;
+  }
+
   .container {
     width: min(var(--container), calc(100% - 28px));
   }
@@ -1251,6 +1414,8 @@ button:disabled {
 
   .cards-three,
   .cards-six,
+  .use-case-grid,
+  .home-plan-grid,
   .faq-list,
   .notice-grid,
   .notice-grid-compact {
@@ -1259,6 +1424,14 @@ button:disabled {
 
   .card {
     padding: 19px;
+  }
+
+  .use-case-card {
+    min-height: 0;
+  }
+
+  .home-plan-summary {
+    min-height: 0;
   }
 
   .cta-block,

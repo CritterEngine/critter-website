@@ -52,16 +52,23 @@
 
         <nav class="site-nav" id="primary-nav" aria-label="Primary" data-site-nav>
           <a href="#why">Why Critter Engine</a>
-          <a href="#mujoco">MuJoCo</a>
+          <a href="#use-cases">Use Cases</a>
           <a href="#features">Features</a>
-          <a href="updates/index.html">Updates</a>
-          <a href="feedback/index.html">Send Feedback</a>
+          <a href="#plans">Plans</a>
           <a href="#faq">FAQ</a>
+          <a href="updates/index.html">Updates</a>
         </nav>
 
-        <a class="button button-primary header-cta" href="updates/index.html">Sign Up</a>
+        <a class="button button-primary header-cta" href="updates/index.html">Join Launch List</a>
       </div>
     </header>
+
+    <aside class="launch-banner" aria-label="Launch status">
+      <div class="container launch-banner-inner">
+        <strong>Launching soon.</strong>
+        <span>Critter Engine is not publicly available yet, but we&rsquo;d be happy to hear what you&rsquo;re working on.</span>
+      </div>
+    </aside>
 
     <main id="main">
       <section class="hero" aria-label="Intro">
@@ -69,10 +76,7 @@
           <div class="hero-copy">
             <p class="eyebrow">Visual robot design and physics simulation</p>
             <h1>Open a tab.<br />Build a robot.<br />Run the physics.<br />Iterate.</h1>
-            <p class="lead">
-              Quickly visualize and edit your robot's physical properties with real-time physics in
-              the browser.
-            </p>
+            <p class="lead">Visual robot-model editor and physics simulator that runs entirely in the browser.</p>
 
             <div class="hero-actions">
               <a class="button button-primary" href="updates/index.html">Sign Up To Hear When We Launch</a>
@@ -208,21 +212,65 @@
         </div>
       </section>
 
-      <section id="mujoco" class="section section-alt">
+      <section id="use-cases" class="section section-alt use-case-section">
+        <div class="container">
+          <div class="section-head use-case-head">
+            <p class="eyebrow">Who Critter Engine is for</p>
+            <h2>Built for robotics wherever it happens.</h2>
+            <p class="lead">
+              From a first robot model to ongoing research and engineering work, Critter Engine
+              gives people a visual place to understand and improve the physics.
+            </p>
+          </div>
+
+          <div class="use-case-grid">
+            <article class="use-case-card">
+              <h3>Research labs and courses</h3>
+              <p>
+                Give students and researchers a consistent visual environment for understanding,
+                testing, and sharing robot models.
+              </p>
+              <a class="use-case-card-link" href="labs/index.html">
+                Explore <span aria-hidden="true">&rarr;</span>
+              </a>
+            </article>
+
+            <article class="use-case-card">
+              <h3>Robotics companies and engineering teams</h3>
+              <p>
+                Inspect physical models, catch problems earlier, and iterate while keeping standard
+                files available to downstream tools.
+              </p>
+            </article>
+
+            <article class="use-case-card">
+              <h3>Independent builders and student teams</h3>
+              <p>
+                Start in the browser without an installation or account. Build locally, learn
+                visually, and export when you are ready.
+              </p>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="mujoco" class="section">
         <div class="container split">
           <div class="section-copy">
-            <p class="eyebrow">Built on MuJoCo</p>
-            <h2>For the MuJoCo workflow.</h2>
+            <p class="eyebrow">Physics foundation</p>
+            <h2>MuJoCo underneath. Your workflow around it.</h2>
             <p class="lead">
-              Critter Engine is built on MuJoCo. If you already work in MuJoCo, Critter Engine fits
-              your stack without locking you in.
+              Critter Engine runs MuJoCo physics directly in the browser and works with MJCF/XML
+              plus many URDF and Xacro projects. You do not need to be a MuJoCo expert to start
+              building, inspecting, and testing robot models visually.
             </p>
           </div>
 
           <div class="feature-list">
             <article class="feature-item">
-              <h3>Real MuJoCo physics</h3>
-              <p>Running natively in your browser.</p>
+              <h3>Physics you can trust</h3>
+              <p>Run MuJoCo directly in your browser as you build, inspect, and test the model.</p>
             </article>
 
             <article class="feature-item">
@@ -235,7 +283,7 @@
             </article>
 
             <article class="feature-item">
-              <h3>Export your edited model</h3>
+              <h3>Take the model with you</h3>
               <p>Export clean MJCF/XML compatible with current MuJoCo 3.x runtimes.</p>
             </article>
 
@@ -248,7 +296,7 @@
             </article>
 
             <article class="feature-item">
-              <h3>MuJoCo sensors you can inspect, edit, and record</h3>
+              <h3>Inspect, edit, and record sensors</h3>
               <p>
                 Add or edit common MuJoCo sensors for sites, joints, actuators, tendons, subtrees,
                 and clocks, then inspect live sensordata and export recordings as JSON or CSV.
@@ -258,7 +306,7 @@
         </div>
       </section>
 
-      <section id="features" class="section">
+      <section id="features" class="section section-alt">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">What you can do with Critter Engine</p>
@@ -317,6 +365,50 @@
         </div>
       </section>
 
+      <section id="plans" class="section home-plans-section">
+        <div class="container">
+          <div class="section-head home-plans-head">
+            <p class="eyebrow">Plans</p>
+            <h2>Build free. Add a team when the work becomes shared.</h2>
+          </div>
+
+          <div class="home-plan-grid">
+            <article class="home-plan-card">
+              <p class="home-plan-kicker">Individual</p>
+              <h3>Build and explore free</h3>
+              <p class="home-plan-summary">
+                For students, researchers, engineers, and independent builders working on their
+                own projects.
+              </p>
+              <ul>
+                <li>Visual robot editing</li>
+                <li>Browser-based physics</li>
+                <li>Local project files</li>
+                <li>Standard import and export</li>
+                <li>No account required for local work</li>
+              </ul>
+            </article>
+
+            <article class="home-plan-card home-plan-card-team">
+              <p class="home-plan-kicker">Team</p>
+              <h3>Keep shared work organized</h3>
+              <p class="home-plan-summary">
+                For labs, courses, project teams, and companies that need the work to belong to the
+                group.
+              </p>
+              <ul>
+                <li>Team-owned shared projects</li>
+                <li>Member roles and permissions</li>
+                <li>Cloud versions, comments, and sharing</li>
+                <li>Centralized assistant access and usage</li>
+                <li>A continuous workspace as members change</li>
+              </ul>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
       <section id="faq" class="section section-alt">
         <div class="container">
           <div class="section-head">
@@ -364,10 +456,12 @@
             </details>
 
             <details>
-              <summary>Is it free?</summary>
+              <summary>Do I need to have a physics or robotics background?</summary>
               <p>
-                Yes. The in-browser editor is the heart of the product and we intend to keep it
-                free. Optional cloud or team features may become paid add-ons as the product grows.
+                No. You can start with a preset robot, inspect how it is built, move its joints,
+                and run the physics without prior robotics experience. Critter Engine makes the
+                model structure visible as you learn. Deeper physics and robotics knowledge becomes
+                useful as your projects get more advanced.
               </p>
             </details>
           </div>
