@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Talk with Critter Engine about your robotics models, simulation workflow, team, or product." />
+    <title>Critter Engine Inquiries</title>
+    <link rel="icon" href="../logo/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="../logo/favicon.png" />
+    <link rel="apple-touch-icon" href="../logo/icon-192.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../labs/contact/contact.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html" aria-label="Critter Engine home">
+          <img class="brand-mark" src="../logo/logo.svg" alt="" />
+          <span class="brand-name">Critter Engine</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="Primary" data-site-nav>
+          <a href="../index.html#why">Why Critter Engine</a>
+          <a href="../index.html#use-cases">Use Cases</a>
+          <a href="../index.html#features">Features</a>
+          <a href="../index.html#plans">Plans</a>
+          <a href="../index.html#faq">FAQ</a>
+          <a href="../updates/index.html">Updates</a>
+        </nav>
+        <a class="button button-primary header-cta" href="../contact/index.html">Contact Us</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section lab-contact-page">
+        <div class="container lab-contact-layout">
+          <div class="lab-contact-copy">
+            <p class="eyebrow">Critter Engine inquiries</p>
+            <h1>Tell us what you&rsquo;re working on.</h1>
+            <p class="lead">Whether you&rsquo;re evaluating Critter Engine for your company, exploring a robotics workflow, or simply curious about the product, we&rsquo;d be happy to talk.</p>
+          </div>
+
+          <form class="lab-interest-form" data-labs-interest-form data-form-endpoint="https://formspree.io/f/xaewozrk">
+            <input type="hidden" name="source" value="industry-inquiry-page" />
+            <input type="hidden" name="_subject" value="New Critter Engine industry inquiry" />
+
+            <div class="form-field">
+              <label for="inquiry-name">Name</label>
+              <input id="inquiry-name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="form-field">
+              <label for="inquiry-email">Email</label>
+              <input id="inquiry-email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="form-field">
+              <label for="inquiry-organization">Company or organization <span>Optional</span></label>
+              <input id="inquiry-organization" name="organization" type="text" autocomplete="organization" />
+            </div>
+
+            <div class="form-field">
+              <label for="inquiry-size">Approximate team size <span>Optional</span></label>
+              <select id="inquiry-size" name="group_size">
+                <option value="" selected>Not sure yet</option>
+                <option value="just-me">Just me</option>
+                <option value="2-10">2&ndash;10 people</option>
+                <option value="11-30">11&ndash;30 people</option>
+                <option value="31-75">31&ndash;75 people</option>
+                <option value="76-plus">76+ people</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="inquiry-timeframe">Timeframe <span>Optional</span></label>
+              <input id="inquiry-timeframe" name="timeframe" type="text" placeholder="For example: exploring now or later this year" />
+            </div>
+
+            <div class="form-field">
+              <label for="inquiry-message">What would you like to talk about?</label>
+              <textarea id="inquiry-message" name="message" rows="6" placeholder="A few sentences about your robot, product, workflow, or question." required></textarea>
+            </div>
+
+            <label class="call-preference" for="inquiry-call">
+              <input id="inquiry-call" name="prefers_video_call" type="checkbox" value="yes" />
+              <span><strong>I&rsquo;d like to schedule a short video call.</strong><small>We&rsquo;ll follow up by email to find a convenient time.</small></span>
+            </label>
+
+            <button class="button button-primary" type="submit">Start the conversation</button>
+            <p class="form-status" data-labs-interest-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="footer-brand" href="../index.html" aria-label="Critter Engine home"><img class="footer-mark" src="../logo/logo.svg" alt="" /><span>Critter Engine</span></a>
+        <p class="footer-meta"><span>&copy; <span id="year"></span></span><span class="dot" aria-hidden="true">&middot;</span><a href="../labs/index.html">For robotics labs</a><span class="dot" aria-hidden="true">&middot;</span><a href="../legal/privacy-policy/">Privacy Policy</a><span class="dot" aria-hidden="true">&middot;</span><a href="../legal/terms-of-service/">Terms Of Service</a></p>
+      </div>
+    </footer>
+    <script src="../script.js" defer></script>
+    <script src="../labs/contact/contact.js" defer></script>
+  </body>
+</html>
