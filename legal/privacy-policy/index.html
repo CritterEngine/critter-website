@@ -56,7 +56,7 @@
         <div class="container legal-layout">
           <div class="legal-hero">
             <h1>Privacy Policy</h1>
-            <p class="legal-updated">Effective Date: Jul 30, 2026</p>
+            <p class="legal-updated">Effective Date: Sep 1, 2026</p>
           </div>
 
           <section class="notice-section" aria-labelledby="introduction">
@@ -99,6 +99,7 @@
             <p>Some User Content may include personal information if a user chooses to include it in project names, file names, descriptions, metadata, uploaded files, comments, support requests, or shared content. Users are responsible for ensuring they have the rights and permissions needed to upload and process their User Content through the Services.</p>
             <h3 id="anonymous-local-browser-data">3.3 Anonymous Local Browser Data</h3>
             <p>If you use Critter without creating or signing into an account, certain drafts, autosaves, assets, preferences, cached files, or project recovery data may be stored locally in your browser using browser storage technologies such as IndexedDB, local storage, cache storage, or similar browser mechanisms.</p>
+            <p>If you use the AI assistant without an account, Critter stores a signed, pseudonymous guest-session token and its expiration time in your browser&#39;s local storage. The token contains a randomly generated session identifier rather than your name or email address. Critter uses it to authenticate guest assistant requests, associate related assistant operations, apply usage limits, prevent abuse, and safely resume or replay interrupted requests. Guest-session tokens generally expire within 24 hours. Clearing browser storage removes the browser&#39;s copy and may require Critter to create a new guest session.</p>
             <p>This local browser data is stored on your device/browser profile. Critter does not receive or store anonymous local drafts in its cloud systems unless you sign in and save, upload, share, submit, or otherwise send that content to the Services.</p>
             <p>Local browser data may be lost if you clear browser data, use private/incognito mode, change devices or browsers, disable browser storage, or if your browser or operating system clears storage.</p>
             <h3 id="cloud-saves-cloud-autosaves-and-account-storage">3.4 Cloud Saves, Cloud Autosaves, And Account Storage</h3>
@@ -115,10 +116,13 @@
               <li>log data, error reports, stack traces, performance data, and diagnostic data;</li>
               <li>approximate location inferred from IP address, such as country, region, or city;</li>
               <li>cookie, local storage, and similar technology identifiers;</li>
+              <li>pseudonymous guest-session identifiers and expiration information for account-free AI assistant access;</li>
               <li>cloud request metadata, security events, and abuse-prevention signals.</li>
             </ul>
+            <p>For account-free AI assistant access, Critter and its infrastructure providers may process IP address, network and request metadata, pseudonymous guest-session identifiers, and related security signals to authenticate requests, enforce rate and spending limits, investigate unexpected usage, prevent fraud or abuse, and protect the Services. Critter does not use this information to create advertising profiles or intentionally identify anonymous testers.</p>
             <p>We do not intentionally collect precise GPS location unless a feature separately asks for and receives permission.</p>
             <p>Critter&#39;s Sentry error reporting is configured not to intentionally collect personal information, session replays, screen recordings, or performance traces. Diagnostic events are scrubbed before they are sent to remove query strings, request headers, cookies, request bodies, local file paths, user context, and sensitive-looking fields.</p>
+            <p>Operational CDN monitoring uses aggregated request counts, cache status, HTTP response status, and synthetic requests to public asset files to detect availability and performance problems. Critter does not use this monitoring to identify users or profile individual behavior.</p>
             <h3 id="information-from-third-party-sources">3.6 Information From Third-Party Sources</h3>
             <p>We may receive limited information from service providers and integrations used to operate the Services, such as:</p>
             <ul>
@@ -155,6 +159,10 @@
             <h2 id="user-uploaded-projects-controller-training-and-critter-model-training">5. User-Uploaded Projects, Controller Training, And Critter Model Training</h2>
             <p>The Services let users create, upload, autosave, store, and work with project files, simulations, metadata, and related materials. Critter handles that content for product operations such as saving projects, rendering previews, running simulations, troubleshooting issues, maintaining backups, protecting the Services, and improving reliability, performance, security, and core functionality.</p>
             <p>Nothing in this Privacy Policy changes ownership rights in User Content. Ownership and license rights are governed by the Terms of Service. We do not currently sell user-uploaded content.</p>
+            <p>The AI assistant is an optional, user-requested feature. Critter sends information to OpenAI only as part of an AI assistant workflow initiated by the user. To complete that workflow, Critter may make automatic follow-up requests for context selection, generation, validation, quality checks, and repair without requiring the user to submit each request separately. Information sent to OpenAI may include the user&#39;s prompt and bounded project context selected or generated as relevant to the request. Merely creating, opening, saving, uploading, or sharing a project does not send its content to OpenAI through the AI assistant.</p>
+            <p>Critter submits AI assistant requests with the provider&#39;s persistent response-storage option disabled. OpenAI may nevertheless process or temporarily retain content and associated metadata according to its API data-retention and abuse-monitoring policies. Critter does not use assistant content to train Critter&#39;s own or generally reusable models without separate, affirmative opt-in consent.</p>
+            <p>To operate, bill for, secure, and troubleshoot the AI assistant, Critter records limited operational information associated with the applicable account or pseudonymous guest session, local or cloud project identifier, and assistant turn. This may include the selected model, request and processing status, processing phases and durations, token usage, estimated cost, warning and finding counts, software and prompt versions, and provider request identifiers. These diagnostic records do not intentionally include prompt text, submitted project XML, generated response text, validation messages, or model reasoning. Assistant turn diagnostics are generally retained for up to 90 days. Assistant usage and billing records may be retained longer as needed for account or guest-session administration, usage limits, billing reconciliation, fraud prevention, dispute resolution, and legal, tax, or accounting obligations.</p>
+            <p>Critter may temporarily retain assistant workflow checkpoints and completed response payloads for up to 24 hours so that background or interrupted requests can be resumed or safely replayed without restarting the work. These records may contain generated assistant responses, replacement model content, and limited repair state.</p>
             <p>Controller-training features are different from Critter model training. If Critter offers features that let users train, optimize, tune, generate, or evaluate controllers, policies, parameters, or simulation behaviors for their own projects, Critter may process the selected User Content as needed to provide that user-requested feature. This may include running simulations, creating intermediate training data, generating outputs, and storing or displaying results according to the feature settings and this Privacy Policy. This applies whether training runs in the user&#39;s browser, on the user&#39;s own hardware, or on Critter-hosted infrastructure.</p>
             <p>Using a controller-training feature does not by itself give Critter permission to use private User Content, training runs, outputs, controller artifacts, or project data to train, fine-tune, or improve Critter&#39;s own or generally reusable machine learning or artificial intelligence models for other users or general product development.</p>
             <p>Critter will not use private User Content for Critter model training, benchmarking datasets, public datasets, research datasets, or generally reusable machine learning or artificial intelligence model improvement unless the user gives separate, affirmative opt-in consent for that specific use. Publishing, sharing, exporting, saving, or uploading content to Critter does not by itself grant us permission to use that content for Critter model training.</p>
@@ -204,11 +212,15 @@
                   </tr>
                   <tr>
                     <td>Cloudflare</td>
-                    <td>Hosting, CDN, Workers/API, database/storage for cloud projects and uploaded assets, Cloudflare Email Service for transactional email delivery, security, infrastructure, traffic/security logs, network error reporting, Cloudflare Web Analytics, and access control if enabled for protected environments</td>
+                    <td>Hosting, CDN, Workers/API, database/storage for cloud projects and uploaded assets, Cloudflare Email Service for transactional email delivery, security, infrastructure, traffic/security logs, operational CDN analytics, network error reporting, Cloudflare Web Analytics, and access control if enabled for protected environments</td>
+                  </tr>
+                  <tr>
+                    <td>OpenAI</td>
+                    <td>AI assistant workflow processing, including user prompts, bounded project context, and automatic follow-up requests; persistent response storage is disabled, subject to OpenAI&#39;s API data-retention and abuse-monitoring policies</td>
                   </tr>
                   <tr>
                     <td>GitHub (asset hosting)</td>
-                    <td>Hosting for Critter&#39;s built-in asset library and pretrained example models; receives standard web request data such as IP address when the app loads those assets</td>
+                    <td>Hosting for some public asset-library and pretrained example-model files; receives standard web request data such as IP address when the app loads files directly from GitHub</td>
                   </tr>
                   <tr>
                     <td>Sentry</td>
@@ -308,11 +320,11 @@
                   </tr>
                   <tr>
                     <td>Cloudflare</td>
-                    <td>Hosting, CDN, security, traffic logs, network error reporting, infrastructure, Cloudflare Web Analytics on marketing pages, and access controls if Cloudflare Access is enabled</td>
+                    <td>Hosting, CDN, security, traffic logs, operational CDN analytics, network error reporting, infrastructure, Cloudflare Web Analytics on marketing pages, and access controls if Cloudflare Access is enabled</td>
                   </tr>
                   <tr>
                     <td>GitHub (asset hosting)</td>
-                    <td>Serves built-in asset library and pretrained example model files requested by the app</td>
+                    <td>Serves some public asset-library and pretrained example-model files requested directly from GitHub by the app</td>
                   </tr>
                   <tr>
                     <td>Sentry</td>
@@ -368,6 +380,7 @@
             <p>Our retention practices include:</p>
             <ul>
               <li>Anonymous browser-local drafts/autosaves are stored locally in the user&#39;s browser until replaced, cleared, deleted, evicted, or otherwise made unavailable by browser/app behavior.</li>
+              <li>Account-free AI assistant guest-session tokens are stored in the user&#39;s browser and generally expire within 24 hours. Server-side assistant usage, security, and turn records associated with a pseudonymous guest-session identifier follow the diagnostic, security, fraud-prevention, and abuse-prevention retention periods described in this Policy.</li>
               <li>Cloud autosaves are progressively thinned over time; Critter generally keeps a project&#39;s most recent autosaves plus a small number of older checkpoint autosaves, which may be kept for as long as the project remains in the account, unless replaced, deleted, converted to a named save, removed for abuse, security, or legal reasons, or otherwise cleared under service limits.</li>
               <li>User-deleted projects are removed from active user-facing systems as soon as reasonably practicable, typically within 7 days, except where retention is needed for backups, security, legal compliance, dispute resolution, fraud prevention, abuse prevention, or enforcement.</li>
               <li>Account data and private cloud-stored User Content are deleted or anonymized typically within 90 days after account deletion or termination, except where retention is needed for legal, tax, accounting, billing, security, fraud prevention, backup, dispute-resolution, or enforcement purposes. Backup copies may persist for a limited period and are deleted on normal backup rotation, typically within 90 days.</li>
